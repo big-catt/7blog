@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+body{
+	margin:0;
+	padding:0;
+}
+.reg_top{
+	height:97px;
+	width:100%;
+	background:red;
+}
