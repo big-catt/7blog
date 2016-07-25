@@ -1,7 +1,7 @@
 <?php
 //加载头部文件
-header('content-type:text/html;charset=utf-8');
-//include_once './page/top.php';
+include_once './page/top.php';
+
 ?>
 <table width="779" height="23" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
