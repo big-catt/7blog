@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 include_once 'top.php';
 if (isset($_GET['id'])){
@@ -5,6 +6,12 @@ if (isset($_GET['id'])){
 }else{
     $id="首页";
 }
+=======
+<?php
+//加载头部文件
+include_once './page/top.php';
+
+>>>>>>> origin/master
 ?>
 <!-- 面包屑导航 -->
 <div class="container">
