@@ -1,58 +1,96 @@
-<?php
-//加载头部文件
-header('content-type:text/html;charset=utf-8');
-//include_once './page/top.php';
-?>
-<table width="779" height="23" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="292" background="./images/dh_back.gif"><div align="right">今天是：&nbsp;
-   <?php echo date("Y-m-d H:i:s");?>
-    </div></td>
-    <td width="200" valign="top"></td>
-  </tr>
-  <tr>
-    <td>Row 1: Col 1</td>
-    <td>Row 1: Col 2</td>
-  </tr>
-</table>
-
 <?php 
-/*
- *
+include_once 'top.php';
+if (isset($_GET['id'])){
+    $id = $_GET['id'];
+}else{
+    $id="首页";
+}
+?>
+<!-- 面包屑导航 -->
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<ul class="breadcrumb">
+				<li>
+					<a href="#">主页</a> <span class="divider"></span>
+				</li>
+				<li>
+					<a href="#"><?php 
+	if(isset($_GET['id']) && $_GET['id']=="详细信息"){
+	?>
+	<a href="index.php?l_id=<?php echo $_GET["l_id"];?> &id=<?php echo urlencode($id);?>" class="a1"><?php echo $id;?></a>
+	<?php
+	
+	}else{
+	?>
+		<?php echo $id;?>
+	<?php 
+	}
+	?></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="span6" style="width: 30%;float:left">
+		
+		</div>
+		<div class="span6">
+		<?php 
+
 switch ($id) {
     case "首页":
-        include './page/mian.php';
+        include 'main.php';
         break;
     case "用户注册":
-        include './page/reg.php';
+        include 'reg.php';
         break;
     case "发表留言":
-        include './page/leaveword.php';
+        include 'leaveword.php';
         break;
     case "查看留言":
-        include './page/lookleaveword.php';
+        include 'lookleaveword.php';
         break;
     case "查询留言":
-        include './page/searchleaveword.php';
+        include 'searchleaveword.php';
         break;
     case "版主管理":
-        include './page/login.php';
+        include 'login.php';
         break;
     case "注销登录":
-        include './page/logout.php';
+        include 'logout.php';
         break;
     case "编辑留言":
-        include './page/editleaveword.php';
+        include 'editleaveword.php';
         break;
     case "回复编辑留言":
-        include './page/editreplyword.php';
+        include 'editreplyword.php';
         break;
     case "详细信息":
-        include './page/detail.php';
+        include 'detail.php';
         break;
     default:
-        include './page/main.php';
+        include 'main.php';
         break;
 }
-*/
+
+?>
+<?php 
+include_once 'top.php';
+$sql = mysql_query("select * from tb_leaveword order by createtime desc ",$conn);
+//$result = mysql_fetch_array($sql) or die(mysql_error());;
+//print_r($result);
+while ($row = mysql_fetch_array($sql)){
+    echo $row['id'].':'.$row['content'];
+}
+?>
+		</div>
+	</div>
+</div>
+
+
+<?php 
+include_once 'bottom.php';
 ?>
