@@ -1,2 +1,2 @@
-# 7blog
+# 7blog(练习项目)
 7blog
